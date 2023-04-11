@@ -1,24 +1,20 @@
 <template>
-    <footer class="footer">
-        <div class="content has-text-centered">
-            <p>
-                <strong>Feito por Luciana Alves</strong>
-                <span class="icon">
-                    <a href="https://www.linkedin.com/in/luciana-alves-373993ba/"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="https://www.facebook.com/luciana.alves.3532507"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://github.com/luh-alves"><i class="fa-brands fa-github"></i></a>
-                    <a href="https://www.facebook.com/luciana.alves.3532507"><i class="fa-brands fa-facebook"></i></a>
+    <footer>
+        <div class="container">
+            <div class="item"><strong>Feito por Luciana Alves</strong></div>
+            <div class="item"><a href="https://www.linkedin.com/in/luciana-alves-373993ba/"><i
+                        class="fa-brands fa-linkedin"></i></a></div>
+            <div class="item"><a href="https://www.facebook.com/luciana.alves.3532507"><i
+                        class="fa-brands fa-instagram"></i></a></div>
+            <div class="item"><a href="https://github.com/luh-alves"><i class="fa-brands fa-github"></i></a></div>
+            <div class="item"><a href="https://www.facebook.com/luciana.alves.3532507"><i
+                        class="fa-brands fa-facebook"></i></a></div>
 
-
-                </span>
-
-            </p>
         </div>
     </footer>
 </template>
 <script lang="ts">
-import { exportDefaultDeclaration } from '@babel/types';
-import { defineComponent, DefineComponent } from 'vue';
+import { defineComponent } from 'vue';
 
 
 export default defineComponent({
@@ -26,18 +22,17 @@ export default defineComponent({
 })
 </script>
 <style scoped>
-
-.content{
-    padding-bottom: 2rem;
-    background-color: #F5A326;
-
-;
+.container {
+    display: flex;
+    justify-content: center;
 }
-.content p{
-    padding-top: 2rem;
-    
+
+.item {
+    padding-top: 5rem;
+    padding-left: 1rem;
 }
-.icon a {
+
+a {
     text-decoration: none;
     color: black;
 }
