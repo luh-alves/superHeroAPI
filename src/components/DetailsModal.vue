@@ -12,8 +12,11 @@
                       <img :src="pokemon.sprites?.front_default">
                       <p class="title">{{ pokemon.name }}</p>
                       <p class="subtitle">{{ getTypes(pokemon) }}</p>
-                      <div class="informacoesHeros">
-                        <p v-for="ability in getAbilities(pokemon)" :key="ability.name">{{ ability.name }}</p>
+                      <div class="teste">
+                        <h4>Abilities</h4>
+                        <div class="informacoesHeros">
+                          <p v-for="ability in getAbilities(pokemon)" :key="ability.name">{{ ability.name }}</p>
+                        </div>
                       </div>
                     </div>
                   </article>
@@ -59,7 +62,7 @@ export default defineComponent({
     } else {
       this.pokemon = this.pokeInfo
     }
-    
+
   },
   methods: {
     getTypes(pokemon: any) {
@@ -74,13 +77,11 @@ export default defineComponent({
 
 <style>
 .card {
-  background-color: rgb(255, 175, 0);
 
-}
+  border: 1px solid blue;
+  background-color: rgb(255, 217, 0);
+  color: blue;
 
-img {
-  border-radius: 50%;
-  width: 160px;
 }
 
 .containerConteudo {
@@ -88,11 +89,19 @@ img {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  background-color: aliceblue;
 }
 
-.informacoesHeros:hover {
-  background-image: linear-gradient(to bottom right, rgba(255, 145, 0, 0.253), white);
-  border-radius: 10px;
+h4 {
+  font-size: 25px;
+  color: #160b30;
+  font-family: 'Righteous', cursive;
+  border-bottom: blue;
+}
+
+button {
+  font-family: 'Righteous', cursive;
+  
 }
 
 .informacoesHeros {
@@ -118,10 +127,10 @@ img {
 
 .subtitle:hover,
 .subtitle:focus {
-  background-image: linear-gradient(to bottom right, rgba(255, 145, 0, 0.253), white);
-  color: #FA2E25;
+
+  color: blue;
   transform: translateX(10px) scale(1.2);
-  border-radius: 4px;
+  border-bottom: 1px solid;
 }
 
 .modal-mask {
@@ -154,5 +163,4 @@ img {
 
 .modal-default-button {
   margin-top: 20px;
-}
-</style>
+}</style>
