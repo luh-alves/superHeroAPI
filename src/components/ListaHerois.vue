@@ -13,32 +13,33 @@
     </div>
     <div class="container">
         <div class="grid-container" v-if="pokemonList.length">
-            <div class="itens" v-for="pokemon in pokemonList" :key="pokemon.name" @click="onItemClick(pokemon)">{{ pokemon.name }}
+            <div class="itens" v-for="pokemon in pokemonList" :key="pokemon.name" @click="onItemClick(pokemon)">{{
+                pokemon.name }}
             </div>
         </div>
         <div class="item error" v-if="!pokemonList.length">
             <p>No results found!</p>
         </div>
     </div>
-    <DetailsModal v-if="showModal" @close="showModal = false" :poke-info="selectedPokemon"/>
+    <DetailsModal v-if="showModal" @close="showModal = false" :poke-info="selectedPokemon" />
 </template>
   
 <script lang="ts">
 import { isArray } from '@vue/shared';
 import { defineComponent, onMounted, ref } from 'vue';
+import DetailsModal from './DetailsModal.vue';
+import axios from 'axios';
 
 
 const searchPokemons = async (query = "") => {
     try {
-        const result = await fetch(`https://pokeapi.co/api/v2/pokemon/${query}`);
-        const data = await result.json()
-        return isArray(data.results) ? data.results : [data];
+        const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${query}`);
+        const data =  response.data;
+        return Array.isArray(data.results) ? data.results:[data];
     } catch (e) {
         return []
     }
 }
-
-import DetailsModal from './DetailsModal.vue';
 
 export default defineComponent({
     components: {

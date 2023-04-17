@@ -41,11 +41,12 @@
 <script lang="ts">
 
 import { defineComponent, ref } from 'vue';
+import axios from "axios";
 
 
 const getPokemon = async (url: string) => {
-  const result = await fetch(url);
-  const data = await result.json()
+  const result = await axios.get(url);
+  const data = await result.data
   return data;
 }
 export default defineComponent({
@@ -75,6 +76,7 @@ export default defineComponent({
 })
 </script>
 
+
 <style>
 .card {
 
@@ -101,7 +103,7 @@ h4 {
 
 button {
   font-family: 'Righteous', cursive;
-  
+
 }
 
 .informacoesHeros {
@@ -163,4 +165,5 @@ button {
 
 .modal-default-button {
   margin-top: 20px;
-}</style>
+}
+</style>
